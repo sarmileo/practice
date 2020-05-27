@@ -5,7 +5,8 @@ import java.util.*;
 public class longestSubstring {
 
     public static int lengthOfLongestSubstring(String s) 
-    {        
+    {   
+        // if string is empty, just return      
         if (s.isEmpty())
             return 0;
         
@@ -22,6 +23,11 @@ public class longestSubstring {
         }
         else
         {
+            /** The end position will advance until it finds a repeating character
+             *  The start position will advance if a repeating character is found
+             *  If the end position reach the end of the string, we should have 
+             *    the longest size of the substring without repeating characters
+             */
             int endPos = startPos + 1;
         
             while (endPos != charArray.length)
