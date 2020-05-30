@@ -25,6 +25,7 @@ public class findAnagrams
         while (endIndex <= sLength) 
         {
             String subString = s.substring(startIndex, endIndex);
+
             Map<Character, Long> subsCharMap = subString.chars().mapToObj(e -> (char) e)
                                                 .collect(
                                                     Collectors.groupingBy(
@@ -33,10 +34,16 @@ public class findAnagrams
                                                     )
                                                 );
 
+            boolean check = false;
             if (subsCharMap.equals(pCharMap)) 
             {
                 indexes.add(startIndex);
+                check = true;
             }
+            
+            System.out.println("index: " + startIndex 
+                                + " - " + subsCharMap + " " 
+                                + ((check) ? "Anagram" : "X"));
 
             startIndex++;
             endIndex = startIndex + pLength;
